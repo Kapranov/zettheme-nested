@@ -1,0 +1,18 @@
+h1 Список разделов
+
+table.table
+  thead
+    tr
+      th Имя
+      th Действия
+  tbody
+    - @projects.each do |project|
+      tr
+        td= project.name
+        td
+          = link_to 'Показать', project, class: 'btn btn-default btn-xs'
+          = link_to 'Редактировать', edit_project_path(project), class: 'btn btn-default btn-xs'
+          = link_to 'Удалить', project, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-xs btn-danger'
+
+
+= link_to 'Создать раздел', new_project_path
